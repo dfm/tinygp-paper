@@ -32,7 +32,7 @@
 \section{Introduction}
 \label{sec:intro}
 
-This manuscript was prepared with \project{showyourwork}\footnote{https://show-your.work} \citep{Luger:2021}.
+This manuscript was prepared with \project{showyourwork}\footnote{\url{https://show-your.work}} \citep{Luger:2021}.
 
 \citep{Foreman-Mackey:2017, Foreman-Mackey:2018, Foreman-Mackey:2021}.
 
@@ -42,7 +42,7 @@ There exist a range of definitions for \emph{quasiseparable matrices} in the lit
 The most suitable definition for our purposes is nearly identical to the one used by \citet{Eidelman:1999}, with some small modifications that will become clear as we go.
 
 Let's start by considering an $N \times N$ \emph{square quasiseparable matrix} $\mm{M}$ with lower quasiseparable order $m_l$ and upper quasiseparable order $m_u$.
-In this note, we represent this matrix $\mm{M}$ as:\footnote{Comparing this definition to the one from \citet{Eidelman1999}, you may notice that we have swapped the labels of $\mv{g}_j$ and $\mv{h}_i$, and that we've added an explicit transpose to $\mm{B}_k\T$. These changes simplify the notation and implementation for symmetric matrices where, with our definition, $\mv{g} = \mv{p}$, $\mv{h} = \mv{q}$, and $\mm{B} = \mm{A}$.}
+In this note, we represent this matrix $\mm{M}$ as:\footnote{Comparing this definition to the one from \citet{Eidelman:1999}, you may notice that we have swapped the labels of $\mv{g}_j$ and $\mv{h}_i$, and that we've added an explicit transpose to $\mm{B}_k\T$. These changes simplify the notation and implementation for symmetric matrices where, with our definition, $\mv{g} = \mv{p}$, $\mv{h} = \mv{q}$, and $\mm{B} = \mm{A}$.}
 %
 \begin{eqnarray}\label{eq:square-qsm-def}
     M_{ij} &=& \left \{ \begin{array}{ll}
@@ -116,6 +116,11 @@ Generalizing \citep{Delisle:2022}.
 \appendix
 \section{Algorithms}
 
+Should also look at \citet{Pernet:2018}.
+
+\section{Parallelization}
+
+See \citet{Sarkka:2020}.
 
 \bibliography{bib}
 \bibliographystyle{aasjournal}
