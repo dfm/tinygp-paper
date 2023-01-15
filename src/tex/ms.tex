@@ -2,6 +2,9 @@
 \usepackage{showyourwork}
 
 \newcommand{\project}[1]{\textsf{#1}}
+\newcommand{\mv}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\mm}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\T}{\ensuremath{^\mathrm{T}}}
 
 % \shorttitle{AASTeX v6.3.1 Sample article}
 \shortauthors{Foreman-Mackey et al.}
@@ -31,15 +34,68 @@
 
 This manuscript was prepared with \project{showyourwork}\footnote{https://show-your.work} \citep{Luger:2021}.
 
+\citep{Foreman-Mackey:2017, Foreman-Mackey:2018, Foreman-Mackey:2021}.
+
 \section{Quasiseparable linear algebra}
+
+There exist a range of definitions for \emph{quasiseparable matrices} in the literature, so to be explicit, let's select the one that we will consider in all that follows.
+The most suitable definition for our purposes is nearly identical to the one used by \citet{Eidelman:1999}, with some small modifications that will become clear as we go.
+
+Let's start by considering an $N \times N$ \emph{square quasiseparable matrix} $\mm{M}$ with lower quasiseparable order $m_l$ and upper quasiseparable order $m_u$.
+In this note, we represent this matrix $\mm{M}$ as:\footnote{Comparing this definition to the one from \citet{Eidelman1999}, you may notice that we have swapped the labels of $\mv{g}_j$ and $\mv{h}_i$, and that we've added an explicit transpose to $\mm{B}_k\T$. These changes simplify the notation and implementation for symmetric matrices where, with our definition, $\mv{g} = \mv{p}$, $\mv{h} = \mv{q}$, and $\mm{B} = \mm{A}$.}
+%
+\begin{eqnarray}\label{eq:square-qsm-def}
+    M_{ij} &=& \left \{ \begin{array}{ll}
+        d_i\quad,                                                                   & \mbox{if }\, i = j \\
+        \mv{p}_i\T\,\left ( \prod_{k=i-1}^{j+1} \mm{A}_k \right )\,\mv{q}_j\quad,   & \mbox{if }\, i > j \\
+        \mv{h}_i\T\,\left ( \prod_{k=i+1}^{j-1} \mm{B}_k\T \right )\,\mv{g}_j\quad, & \mbox{if }\, i < j \\
+    \end{array}\right .
+\end{eqnarray}
+%
+where
+%
+\begin{itemize}
+    \item $i$ and $j$ both range from $1$ to $N$,
+    \item $d_i$ is a scalar,
+    \item $\mv{p}_i$ and $\mv{q}_j$ are both vectors with $m_l$ elements,
+    \item $\mm{A}_k$ is an $m_l \times m_l$ matrix,
+    \item $\mv{g}_j$ and $\mv{h}_i$ are both vectors with $m_u$ elements, and
+    \item $\mm{B}_k$ is an $m_u \times m_u$ matrix.
+\end{itemize}
+%
+In \autoref{eq:square-qsm-def}, the product notation is a little sloppy so, to be more explicit, this is how the products expand:
+%
+\begin{eqnarray}
+    \prod_{k=i-1}^{j+1} \mm{A}_k &\equiv& \mm{A}_{i-1}\,\mm{A}_{i-2}\cdots\mm{A}_{j+2}\,\mm{A}_{j+1}\quad\mbox{, and} \nonumber\\
+    \prod_{k=i+1}^{j-1} \mm{B}_k\T &\equiv& \mm{B}_{i+1}\T\,\mm{B}_{i+2}\T\cdots\mm{B}_{j-2}\T\,\mm{B}_{j-1}\T \quad.
+\end{eqnarray}
+
+\begin{eqnarray}
+    \mm{M} &=& \left(\begin{array}{cccc}
+            d_1                                & \mv{h}_1\T\mv{g}_2         & \mv{h}_1\T\mm{B}_2\T\mv{g}_3 & \mv{h}_1\T\mm{B}_2\T\mm{B}_3\T\mv{g}_4 \\
+            \mv{p}_2\T\mv{q}_1                 & d_2                        & \mv{h}_2\T\mv{g}_3           & \mv{h}_2\T\mm{B}_3\T\mv{g}_4           \\
+            \mv{p}_3\T\mm{A}_2\mv{q}_1         & \mv{p}_3\T \mv{q}_2        & d_3                          & \mv{h}_3\T\mv{g}_4                     \\
+            \mv{p}_4\T\mm{A}_3\mm{A}_2\mv{q}_1 & \mv{p}_4\T\mm{A}_3\mv{q}_2 & \mv{p}_4\T\mv{q}_3           & d_4                                    \\
+        \end{array}\right)
+\end{eqnarray}
 
 \section{The \project{celerite} matrices}
 
+\section{Common kernel functions}
+
+SHO, Matern, cosine, CARMA, approximations, etc., sums and products.
+
+\section{Banded observation models}
+
+For example, how the \project{S+LEAF} models are implemented. \citep{Delisle:2020}
+
 \section{Multi-band time series}
 
-With non-simultaneous observations.
+With non-simultaneous observations. Generalizing \citep{Gordon:2020}.
 
 \section{Derivative models}
+
+Generalizing \citep{Delisle:2022}.
 
 \section{Time-integrated models}
 
