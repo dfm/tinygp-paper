@@ -1,57 +1,67 @@
-% Define document class
-\documentclass[twocolumn]{aastex631}
+\documentclass[modern]{aastex631}
 \usepackage{showyourwork}
 
-% Begin!
+\newcommand{\project}[1]{\textsf{#1}}
+
+% \shorttitle{AASTeX v6.3.1 Sample article}
+\shortauthors{Foreman-Mackey et al.}
+
 \begin{document}
 
-% Title
-\title{An open source scientific article}
+\title{A general framework for scalable Gaussian Processes with applications to astronomical time series}
 
-% Author list
-\author{@dfm}
+\author[0000-0002-9328-5652]{Daniel Foreman-Mackey}
+\affiliation{Center for Computational Astrophysics, Flatiron Institute, New York, NY, USA}
 
-% Abstract with filler text
+\author[0000-0002-0802-9145]{Eric Agol}
+\affiliation{Department of Astronomy, University of Washington, Seattle, WA, USA}
+\affiliation{Virtual Planetary Laboratory, University of Washington, Seattle, WA, USA}
+
+\author[0000-0001-5253-1987]{Tyler A.\ Gordon}
+\affiliation{Department of Astronomy, University of Washington, Seattle, WA, USA}
+
 \begin{abstract}
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-    Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-    Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-    Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-    Phasellus eu tellus sit amet tortor gravida placerat.
-    Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-    Praesent eget sem vel leo ultrices bibendum.
-    Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-    Curabitur auctor semper nulla donec varius orci eget risus.
-    Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-    Duis eget orci sit amet orci dignissim rutrum.
+    In this paper we describe some generalizations to the \project{celerite} method.
 \end{abstract}
 
-% Main body with filler text
+\keywords{Astrostatistics (1882) --- Algorithms (1883) --- Time series analysis (1916)}
+
 \section{Introduction}
 \label{sec:intro}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-Phasellus eu tellus sit amet tortor gravida placerat.
-Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-Praesent eget sem vel leo ultrices bibendum.
-Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-Curabitur auctor semper nulla donec varius orci eget risus.
-Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-Duis eget orci sit amet orci dignissim rutrum.
+This manuscript was prepared with \project{showyourwork}\footnote{https://show-your.work} \citep{Luger:2021}.
 
-Nam dui ligula, fringilla a, euismod sodales, sollici- tudin vel, wisi.
-Morbi auctor lorem non justo, nam lacus libero, pretium at, lobortis vitae.
-Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna.
-Morbi ac orci et nisl hendrerit mollis, suspendisse ut massa, cras nec ante.
-Pellentesque a nulla cum sociis natoque penatibus et magnis dis parturient.
-Aliquam tincidunt urna, nulla ullamcorper vestibulum turpis.
-Pellentesque cursus luctus mauris \citep{Luger2021}.
+\section{Quasiseparable linear algebra}
+
+\section{The \project{celerite} matrices}
+
+\section{Multi-band time series}
+
+With non-simultaneous observations.
+
+\section{Derivative models}
+
+\section{Time-integrated models}
+
+
+
+\begin{acknowledgments}
+    DFM would like to thank the Astronomical Data Group at the Flatiron Institute for listening to every iteration of this project and for providing great feedback every step of the way.
+    The authors would also like to thank
+    Suzanne Aigrain (Oxford),
+    Gregory Guida (Etsy),
+    Christopher Stumm (Etsy),
+    \emph{and others\ldots}
+    for insightful conversations and other contributions.
+\end{acknowledgments}
+
+\software{showyourwork \citep{Luger:2021}, JAX \citep{Bradbury:2018}}
+
+\appendix
+\section{Algorithms}
+
 
 \bibliography{bib}
+\bibliographystyle{aasjournal}
 
 \end{document}
